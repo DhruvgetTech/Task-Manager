@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Task Manager</title>
+    <style>
+        body { font-family: Arial; margin: 40px; }
+        input { padding: 8px; }
+        button { padding: 8px; }
+    </style>
+</head>
+<body>
+
+<h2>Student Task Manager</h2>
+
+<input type="text" id="taskInput" placeholder="Enter task">
+<button onclick="addTask()">Add</button>
+
+<ul id="taskList"></ul>
+
+<script>
+    const API = "http://localhost:8080/tasks";
+
+    function loadTasks() {
+        fetch(API)
+            .then(res => res.json())
+            .then(data => {
+                const list = document.getElementById("taskList");
+                list.innerHTML = "";
+                data.forEach(task => {
+                    const li = document.createElement("li");
+                    li.innerText = task.title;
+                    list.appendChild(li);
+                });
+            });
+    }
+
+    function addTask() {
+        const task = document.getElementById("taskInput").value;
+
+        fetch(API, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ title: task })
+        }).then(() => {
+            document.getElementById("taskInput").value = "";
+            loadTasks();
+        });
+    }
+
+    loadTasks();
+</script>
+
+</body>
+</html>
