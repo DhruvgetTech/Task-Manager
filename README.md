@@ -1,46 +1,46 @@
 🧑‍🎓 Student Task Manager (SPA)
+# 1. Project Title & Goal
+Student Task Manager is a simple full-stack Single Page Application (SPA) that allows students to add and view their daily homework/tasks without refreshing the page.
 
-A simple Full Stack Web Development project built using Spring Boot (Backend) and HTML, CSS, JavaScript (Frontend).
-This application helps students manage their daily homework/tasks in a Single Page Application (SPA) without page refresh.
+# 2. Setup Instructions
+Prerequisites
+Java 11+
+Maven
+Any browser (Chrome recommended)
 
-📌 Project Theme
+# 3 Steps to Run the Project
+Backend (Spring Boot) : mvn spring-boot:run
 
-Web Development (Full Stack)
-
-🎯 Project Goal
-
-Build a simple Single Page Application (SPA) to track student homework tasks.
-
-✨ Features
-
-➕ Add a new task using input box
-
-📋 View all tasks in a list
-
-🔄 No page refresh (SPA behavior)
-
-💾 Tasks stored in a local .json file
-
-🌐 REST API using Spring Boot
-
-🛠️ Tech Stack
-Backend
-
-Java
-
-Spring Boot
-
-REST Controller
-
-JSON file storage (tasks.json)
+Backend server will start at:http://localhost:8080
 
 Frontend
+Open the application in browser:
 
-HTML
+http://localhost:8080/index.html
 
-CSS
+# 3. The Logic (How I Thought)
+Why did you choose this approach?
+I chose a Single Page Application (SPA) approach to provide a smooth user experience without page reloads.
+Spring Boot was used to quickly build REST APIs, while HTML, CSS, and JavaScript (Fetch API) were used on the frontend for simplicity and clarity.
 
-JavaScript (Fetch API)
+What was the hardest bug you faced, and how did you fix it?
+The hardest issue was ensuring that tasks were updated on the UI instantly after adding a new task.
+I fixed this by properly handling the Fetch API response and dynamically updating the task list using JavaScript without refreshing the page.
+
+# 4. Output Screenshots
+➕ Add a new task using input box
+📋 View all tasks in a list
+🔄 No page refresh (SPA behavior)
+💾 Tasks stored in a local .json file
+
+
+
+# 5. Future Improvements
+If I had 2 more days, I would add:
+Delete task functionality
+Mark task as completed
+Database integration (MySQL / SQLite)
+Authentication (Login / Register)
 
 📂 Project Structure
 taskmanager/
@@ -60,75 +60,6 @@ taskmanager/
 │── pom.xml
 │── README.md
 
-🔗 API Endpoints
+#  API Endpoints
 ➕ Add Task
 POST /tasks
-
-
-Request Body (JSON):
-
-{
-  "title": "Complete DBMS Assignment"
-}
-
-📋 Get All Tasks
-GET /tasks
-
-
-Response (JSON):
-
-[
-  {
-    "id": 1,
-    "title": "Spring Boot"
-  },
-  {
-    "id": 2,
-    "title": "Revise Java Collections"
-  }
-]
-
-🖥️ Frontend UI
-
-Input box to enter task
-
-Add button to submit task
-
-Task list updates instantly without refreshing the page
-
-▶️ How to Run the Project
-Backend
-mvn spring-boot:run
-
-
-Server runs on:
-
-http://localhost:8080
-
-Frontend
-
-Open in browser:
-
-http://localhost:8080/index.html
-
-📦 Storage
-
-Tasks are stored in a local file:
-📄 tasks.json
-
-No external database required
-
-🚀 Future Enhancements
-
-Delete task
-
-Mark task as completed
-
-Use SQLite / MySQL
-
-React frontend
-
-👨‍💻 Author
-
-Dhruv Dubey
-B.Tech | Full Stack Java Developer
